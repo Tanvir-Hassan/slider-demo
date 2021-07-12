@@ -1,0 +1,57 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+
+      home:
+
+      Homepage(),
+    );
+  }
+}
+
+class Homepage extends StatefulWidget {
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+
+  var _value = 10.0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      appBar: AppBar(
+        title: Text("Slider Demo"),
+        backgroundColor: Colors.purpleAccent,
+      ),
+      body: Column(
+
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Tanvir Hassan",style: TextStyle(fontSize: _value),),
+
+          Slider(
+              min: 10,
+              max: 100,
+              value: _value, onChanged:(value){
+                setState(() {
+                  _value = value;
+                });
+
+          } )
+        ],
+
+
+      ),
+    );
+  }
+}
